@@ -1,0 +1,53 @@
+# Mavis Setup
+
+This framework is designed to run inside [Mavis](https://minimax.io/mavis), the AI agent workspace from MiniMax.
+
+## Install Mavis
+
+Download Mavis from: https://minimax.io/mavis
+
+## Installing this skill
+
+### Option 1: Skill registry (recommended)
+From inside Mavis, load the skill directly:
+```
+skill: op-ai-eval-framework
+```
+This activates the eval coordinator persona with the full four-layer evaluation workflow.
+
+### Option 2: From the repo
+If you have the repo locally, you can reference the skill file directly:
+```
+skill: /path/to/op-ai-agent-eval-framework/skills/op-ai-eval/SKILL.md
+```
+
+## Loading individual personas
+
+Once the main skill is loaded, individual personas can be activated:
+
+```
+agent: eval-coordinator    -- Orchestrate the full evaluation lifecycle
+agent: scenario-designer  -- Build Layer 2 and Layer 4 scenario suites
+agent: red-team-analyst   -- Lead adversarial Layer 4 assessments
+agent: compliance-auditor -- Lead Layer 3 regulatory compliance
+```
+
+## Running an evaluation
+
+Start with the eval coordinator:
+```
+skill: op-ai-eval-framework
+input: AI maintenance action recommender for EV cell production. Design an evaluation.
+```
+
+The framework will guide you through Layer 0 (charter) through Layer 4 (red team) and produce a structured deployment verdict scorecard.
+
+## Configuration
+
+The framework is configured via the inputs you provide at the start of each evaluation:
+- Operational context
+- Agent decision scope
+- Applicable regulations
+- Layer priority (full four-layer or fast screen)
+
+No additional configuration files are required.
